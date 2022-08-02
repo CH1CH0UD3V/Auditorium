@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BulletReceiver : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class BulletReceiver : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] AudioSource _audio;
+
+
+    [Header("GainEffect")]
+    [SerializeField] UnityEvent _onBulletReceived;
+    [SerializeField] UnityEvent _objectifFinished;
+    //[SerializeField] UnityEvent _levelFinished;
 
 
     float _currentScore;
@@ -31,11 +38,22 @@ public class BulletReceiver : MonoBehaviour
         if (bullet != null)
         {
             _lastShoot = Time.time;
+            float oldScore = _currentScore; // 10
 
-            if (_currentScore < _bulletMax)
+            if(_currentScore < _bulletMax)
             {
-                _currentScore += 1;
+                _currentScore += 1;         // 11
                 Debug.Log($"Current score is {_currentScore} points");
+
+                if (oldScore < _bulletMax && _currentScore >= _bulletMax)       
+                {
+                    _objectifFinished.Invoke();
+                }
+                else
+                {
+                    _onBulletReceived.Invoke();    
+                }
+
             }
         }
 
@@ -75,3 +93,14 @@ public class BulletReceiver : MonoBehaviour
 
     }
 }
+
+
+
+
+
+//objectif 1 rempli
+//detruire l'objet fini
+    //objectif 2 rempli
+    //detruire l'objet fini
+        //objectif 3 rempli
+        //detruire l'objet fini
