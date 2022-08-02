@@ -5,11 +5,15 @@ using UnityEngine;
 public class BulletReceiver : MonoBehaviour
 {
     [SerializeField] int _bulletMax;
-    [SerializeField] float _bulletDecrase;
+    [SerializeField] float _waitBulletBeforeDecrease;
     [SerializeField] Color _onSprite;
     [SerializeField] Color _offSprite;
     [SerializeField] SpriteRenderer[] _gauge;
     [SerializeField] float _reductionSpeedPerSeconds;
+
+
+    [Header("Audio")]
+    [SerializeField] AudioSource _audio;
 
 
     float _currentScore;
@@ -39,7 +43,7 @@ public class BulletReceiver : MonoBehaviour
     void Update()
     {
 
-        if (Time.time > _lastShoot + _bulletDecrase)
+        if (Time.time > _lastShoot + _waitBulletBeforeDecrease)
         {
             _currentScore = Mathf.Max(_currentScore - (_reductionSpeedPerSeconds * Time.deltaTime), 0);
             Debug.Log($"Votre jauges perds des points, si vous ne shootez plus {_currentScore} points");
@@ -66,6 +70,7 @@ public class BulletReceiver : MonoBehaviour
                 _gauge[i].color = _offSprite;
             }
         }
+        _audio.volume = percent;
 
 
     }
