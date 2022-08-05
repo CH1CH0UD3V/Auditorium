@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401752542497802649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
+  _transformToMove: {fileID: 2378393799267085237}
 --- !u!50 &1561930640
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +150,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.41
+  m_Radius: 5.06
 --- !u!120 &5818386313807161361
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -338,7 +339,7 @@ GameObject:
   - component: {fileID: 2773073767971182388}
   - component: {fileID: 8800225538775651980}
   m_Layer: 0
-  m_Name: Cercle
+  m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,7 +729,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.4599999
+  m_Radius: 1.47
 --- !u!114 &8800225538775651980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94d11bf97fe2644f827d386c7911dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 0}
+  _areaCircle: {fileID: 2378393799691548396}
+  _areaEffector: {fileID: 2378393799691548399}
 --- !u!1001 &8007222935494564187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -825,6 +829,14 @@ PrefabInstance:
     - target: {fileID: 5629110697084891058, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629110697084891060, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
+      propertyPath: m_ForceMagnitude
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5629110697084891063, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
+      propertyPath: m_Radius
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5629110697125969734, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
       propertyPath: m_Radius
@@ -2883,5 +2895,15 @@ PrefabInstance:
 --- !u!4 &2378393799267085237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5629110697247765230, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
+  m_PrefabInstance: {fileID: 8007222935494564187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &2378393799691548396 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5629110697084891063, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
+  m_PrefabInstance: {fileID: 8007222935494564187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!249 &2378393799691548399 stripped
+AreaEffector2D:
+  m_CorrespondingSourceObject: {fileID: 5629110697084891060, guid: c2aa0a1ba6babb041b18289970ecc238, type: 3}
   m_PrefabInstance: {fileID: 8007222935494564187}
   m_PrefabAsset: {fileID: 0}
